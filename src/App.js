@@ -31,7 +31,7 @@ export default () => {
 
   useEffect(() => {
     function scrollListener() {
-      if(window.screenY > 1) {
+      if(window.screenY > 10) {
         setBlackHeader(true);
       } else {
         setBlackHeader(false);
@@ -60,6 +60,18 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items} />
         ))}
       </section>
+
+      <footer>
+        <strong>Feito com 💜 By <a href="https://adrianolino.vercel.app" target={'_blank'}>Adriano Lino</a></strong>
+        <p>Dados: API site Themoviedb.org</p>
+        <p>Todos os Direitos de imagem para a Netflix</p>
+      </footer>
+
+      {movieList.length <= 0 && 
+      <div className="loading">
+          <img src="https://pa1.narvii.com/7849/69881dd3dd131633d6d2028ddf083405d273839cr1-1200-600_hq.gif" alt="carregando" srcset="" />
+      </div>
+      }
     </div>
   )
 }
